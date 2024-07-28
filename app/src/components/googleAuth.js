@@ -18,7 +18,7 @@ const GoogleAuth = () => {
     
     
       useEffect(()=>{
-        
+        console.log(profile.length)
         if(user){
             axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,{
                 headers: {
@@ -40,7 +40,7 @@ const GoogleAuth = () => {
             width: '100vw',
             justifyContent: 'center',
           }}>
-            {profile ? (
+            {profile && profile.length>0? (
                 <div>
                     <img src={profile.picture} alt="user image" />
                     <h3>User Logged in</h3>
